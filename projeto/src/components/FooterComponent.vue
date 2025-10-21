@@ -1,8 +1,13 @@
-<script setup></script>
+<script setup>
+</script>
 
 <template>
   <div>
-    <img src="/public/Group 6.png" alt="Cenas de Filmes" />
+    <img class="cenas" src="/public/Group 6.png" alt="Cenas de Filmes" />
+
+    <div class="logo-container">
+      <img class="logo" src="/public/logo-vermelha.png" alt="Logo Passion's Archive" />
+    </div>
     <nav>
       <ul>
         <li><a href="#">INÍCIO</a></li>
@@ -13,6 +18,7 @@
       </ul>
     </nav>
   </div>
+
 </template>
 
 <style scoped>
@@ -28,6 +34,8 @@ div {
 nav {
   width: 100%;
   text-align: center;
+  margin-left: 10vw;
+  margin-top: 13px;
 }
 
 nav ul {
@@ -45,7 +53,21 @@ nav ul li a {
   font-weight: 400;
 }
 
-nav ul li a:active{
+nav ul li a:active {
   font-weight: bold;
 }
+.cenas {
+  margin-left: 4vw;
+  width: 180px;
+  height: auto;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 0 15vw;
+}
+
 </style>
