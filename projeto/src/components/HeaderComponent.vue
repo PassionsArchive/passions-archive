@@ -1,10 +1,12 @@
-<script setup></script>
+<script setup>
+import router from '@/router';
+</script>
 
 <template>
-  <img src="/public/logo-preta.png" alt="Logo Passion's Archive" />
+  <img src="/public/logo-preta.png" alt="Logo Passion's Archive" @click="router.push('/')"/>
   <nav>
     <ul>
-      <li><a href="#">INÍCIO</a></li>
+      <li @click="router.push('/')"><a href="">INÍCIO</a></li>
       <li><a href="#">SALVOS</a></li>
       <li><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
       <li><a href="#">ASSISTIDOS</a></li>
