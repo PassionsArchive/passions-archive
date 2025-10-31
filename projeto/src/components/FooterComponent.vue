@@ -18,7 +18,6 @@
       </ul>
     </nav>
   </div>
-
 </template>
 
 <style scoped>
