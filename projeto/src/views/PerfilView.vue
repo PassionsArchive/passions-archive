@@ -50,8 +50,10 @@ ul {
 }
 
 .perfil-info li {
-  margin-bottom: 2vh;
-  font-size: 1rem;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: black;
+  font-weight: bold;
 }
 
 .sair button {
@@ -60,9 +62,11 @@ ul {
   border: none;
   padding: 0.8vw 2vw;
   font-weight: bold;
-  border-radius: 4px;
+  font-size: 1.1rem;
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 3vw;
 }
 
 .sair button:hover {
@@ -74,7 +78,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2vh;
+  gap: 5vh;
 }
 
 .contagens button {
@@ -82,7 +86,7 @@ ul {
   background: transparent;
   padding: 1vw 2.5vw;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 10px;
   width: 12vw;
 }
 </style>

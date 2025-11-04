@@ -10,11 +10,11 @@
     </div>
     <nav>
       <ul>
-        <li @click="router.push('/')"><a href="#">INÍCIO</a></li>
-        <li><a href="#">SALVOS</a></li>
-        <li><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
-        <li><a href="#">ASSISTIDOS</a></li>
-        <li><a href="#">PERFIL</a></li>
+        <li><router-link to="/">INÍCIO</router-link></li>
+        <li><router-link to="/salvos">SALVOS</router-link></li>
+        <li><router-link to="/final">COMO ESTÁ SEU HUMOR?</router-link></li>
+        <li><router-link to="/assistidos">ASSISTIDOS</router-link></li>
+        <li><router-link to="/perfil">PERFIL</router-link></li>
       </ul>
     </nav>
   </div>
@@ -67,6 +67,10 @@ nav ul li a:active {
   align-items: center;
   width: 100%;
   margin: 0 0 0 15vw;
+}
+
+.router-link-exact-active {
+  font-weight: bold;
 }
 
 </style>

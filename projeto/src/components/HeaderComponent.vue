@@ -1,16 +1,18 @@
 <script setup>
-import router from '@/router';
+import router from '@/router'
 </script>
 
 <template>
-  <img src="/public/logo-preta.png" alt="Logo Passion's Archive" @click="router.push('/')"/>
+  <img src="/public/logo-preta.png" alt="Logo Passion's Archive" @click="router.push('/')" />
   <nav>
     <ul>
-      <li @click="router.push('/')"><a href="">INÍCIO</a></li>
-      <li><a href="#">SALVOS</a></li>
-      <li @click="router.push('/final')"><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
-      <li><a href="#">ASSISTIDOS</a></li>
-      <li @click="router.push('/perfil')"><a href="#">PERFIL</a></li>
+      <ul>
+        <li><router-link to="/">INÍCIO</router-link></li>
+        <li><router-link to="/salvos">SALVOS</router-link></li>
+        <li><router-link to="/final">COMO ESTÁ SEU HUMOR?</router-link></li>
+        <li><router-link to="/assistidos">ASSISTIDOS</router-link></li>
+        <li><router-link to="/perfil">PERFIL</router-link></li>
+      </ul>
     </ul>
   </nav>
 </template>
@@ -43,7 +45,8 @@ ul {
   margin: 0;
 }
 
-li a {
+li a,
+li router-link {
   text-decoration: none;
   font-size: 1rem;
   color: black;
@@ -53,13 +56,14 @@ li a {
   border-radius: 2px;
 }
 
-li a.active {
+li a.active,
+li router-link.active {
   border: 1.5px solid black;
-  border-radius: 2px;
 }
 
-li a:hover {
+li a:hover,
+li router-link:hover {
   border: 1.5px solid black;
-  border-radius: 2px;
 }
+
 </style>

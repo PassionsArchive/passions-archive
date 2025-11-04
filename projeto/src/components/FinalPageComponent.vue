@@ -20,7 +20,7 @@
 
 <style scoped>
 .geral {
-  border-top: 100px solid #401818;
+  border-top: 70px solid #401818;
   text-align: center;
   padding: 4vw 0 8vw 0;
 }
