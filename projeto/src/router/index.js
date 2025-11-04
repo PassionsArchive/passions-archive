@@ -9,6 +9,11 @@ const routes = [
     path: '/final',
     name: 'FinalPage',
     component: () => import('@/components/FinalPageComponent.vue'),
+  },
+  {
+    path: '/perfil',
+    name: 'Perfil',
+    component: () => import('@/views/PerfilView.vue'),
   }
 ]
 

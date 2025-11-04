@@ -10,7 +10,7 @@ import router from '@/router';
       <li><a href="#">SALVOS</a></li>
       <li @click="router.push('/final')"><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
       <li><a href="#">ASSISTIDOS</a></li>
-      <li><a href="#">PERFIL</a></li>
+      <li @click="router.push('/perfil')"><a href="#">PERFIL</a></li>
     </ul>
   </nav>
 </template>

@@ -1,7 +1,9 @@
 <script setup>
-import { ref } from 'vue';
-import HeaderComponent from './components/HeaderComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
+import { ref, onMounted } from 'vue'
+import api from './plugins/axios'
+
+import HeaderComponent from './components/HeaderComponent.vue'
+import FooterComponent from './components/FooterComponent.vue'
 </script>
 
 <template>
@@ -10,5 +12,4 @@ import FooterComponent from './components/FooterComponent.vue';
   <FooterComponent />
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
