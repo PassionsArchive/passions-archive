@@ -1,4 +1,5 @@
 <script setup>
+import router from '@/router';
 </script>
 
 <template>
@@ -10,7 +11,7 @@
         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
         laboris.
       </p>
-      <button>LOG-IN</button>
+      <button @click="router.push('/login')">LOG-IN</button>
     </div>
     <div class="imagem">
       <img src="/public/prideandprejudice.png" alt="Orgulho e Preconceito" />
