@@ -6,11 +6,11 @@
     <img class="cenas" src="/public/Group 6.png" alt="Cenas de Filmes" />
 
     <div class="logo-container">
-      <img class="logo" src="/public/logo-vermelha.png" alt="Logo Passion's Archive" />
+      <img class="logo" src="/public/logo-vermelha.png" alt="Logo Passion's Archive" @click="router.push('/')"/>
     </div>
     <nav>
       <ul>
-        <li><a href="#">INÍCIO</a></li>
+        <li @click="router.push('/')"><a href="#">INÍCIO</a></li>
         <li><a href="#">SALVOS</a></li>
         <li><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
         <li><a href="#">ASSISTIDOS</a></li>

@@ -20,17 +20,49 @@
 
 <style scoped>
 .geral {
-  border-top: 50px solid #401818;
+  border-top: 100px solid #401818;
+  text-align: center;
+  padding: 4vw 0 8vw 0;
 }
+
+.geral img {
+  display: block;
+  margin: 0 auto;
+}
+
 .listas {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15vw;
-  margin-top: 4vw;
+  gap: 5vw;
+  margin-top: 3vw;
 }
-.div-1, .div-2 {
+
+.listas ul {
   list-style: none;
+  padding: 2vw 4vw 0 4vw;
+}
+
+.listas li {
+  margin-bottom: 1.5vw;
+}
+
+button {
+  border: 2px solid black;
+  background: transparent;
+  font-size: 1.5rem;
+  padding: 0.8vw 2.5vw;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 15vw;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #401818;
+  color: #fff;
+  transform: scale(1.05);
 }
 
 </style>

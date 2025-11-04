@@ -2,16 +2,16 @@
 
 <template>
   <div class="geral">
-  <img class="cena-1" src="/public/thenotebook.png" alt="Cena Diário de uma Paixão" />
-  <div class="principal">
-    <img src="/public/texto-1.png" alt="Título">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-      laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-  </div>
-  <img class="cena-2" src="/public/prettywoman.png" alt="Cena Uma Linda Mulher" />
+    <img class="cena-1" src="/public/thenotebook.png" alt="Cena Diário de uma Paixão" />
+    <div class="principal">
+      <img src="/public/texto-1.png" alt="Título" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+    </div>
+    <img class="cena-2" src="/public/prettywoman.png" alt="Cena Uma Linda Mulher" />
   </div>
 </template>
 
@@ -24,21 +24,20 @@
   margin: 4vw 0 9vw 0;
   border-top: solid 2px black;
   padding-top: 15vh;
-
 }
 .cena-1 {
-  margin-left: 4vw;
+  margin-left: 7vw;
   width: 350px;
   height: auto;
 }
-.principal{
-  margin: 0 0 0 5vw;
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.principal img {
- margin-left: 10px;
-}
+
 .principal p {
-  width: 74%;
+  width: 60%;
   text-align: center;
   margin-top: 2vw;
   color: black;
@@ -46,7 +45,7 @@
   font-size: 1.2rem;
 }
 .cena-2 {
-  margin-right: 5vw;
+  margin-right: 7vw;
   width: 350px;
   height: auto;
 }

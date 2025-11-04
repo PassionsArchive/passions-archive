@@ -8,7 +8,7 @@ import router from '@/router';
     <ul>
       <li @click="router.push('/')"><a href="">INÍCIO</a></li>
       <li><a href="#">SALVOS</a></li>
-      <li><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
+      <li @click="router.push('/final')"><a href="#">COMO ESTÁ SEU HUMOR?</a></li>
       <li><a href="#">ASSISTIDOS</a></li>
       <li><a href="#">PERFIL</a></li>
     </ul>

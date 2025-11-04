@@ -32,7 +32,7 @@
 .texto {
   width: 38%;
   color: black;
-  margin-right: 7vw;
+  margin-right: 5vw;
 }
 .texto h1 {
   font-size: 2.5rem;
@@ -57,8 +57,15 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  transition: all 0.3s ease;
   font-size: 1rem;
   font-weight: bold;
   margin: 0 10vw 0 10vw;
+}
+
+button:hover {
+  background-color: #8b3c3c;
+  color: #fff;
+  transform: scale(1.05);
 }
 </style>
