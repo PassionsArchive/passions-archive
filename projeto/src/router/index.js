@@ -10,11 +10,16 @@ const routes = [
     name: 'FinalPage',
     component: () => import('@/components/FinalPageComponent.vue'),
   },
-  {
+   {
     path: '/perfil',
     name: 'Perfil',
     component: () => import('@/views/PerfilView.vue'),
-  }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/LoginView.vue'),
+  },
 ]
 
 const router = createRouter({
