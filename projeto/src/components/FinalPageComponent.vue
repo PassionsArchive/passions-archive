@@ -1,11 +1,13 @@
-<script setup></script>
+<script setup>
+import router from '@/router';
+</script>
 
 <template>
   <div class="geral">
     <img src="/public/texto-2.png" alt="Título" />
     <div class="listas">
       <ul class="div-1">
-        <li><button>ROMÂNTICO</button></li>
+        <li @click="router.push('/emotions')"><button>ROMÂNTICO</button></li>
         <li><button>TRISTE</button></li>
         <li><button>ESTRESSADO</button></li>
       </ul>
