@@ -26,8 +26,8 @@ const fetchMovies = async (page = 1) => {
         with_genres: '10749',
         'vote_count.gte': 100,
         language: 'pt-BR',
-        page: page
-      }
+        page: page,
+      },
     })
 
     if (page === 1) {
@@ -76,9 +76,7 @@ onMounted(() => {
       <h2>{{ emotion }}</h2>
     </div>
 
-    <div v-if="loading" class="loading">
-      Carregando filmes...
-    </div>
+    <div v-if="loading" class="loading">Carregando filmes...</div>
 
     <div v-else-if="error" class="error">
       {{ error }}
@@ -90,19 +88,20 @@ onMounted(() => {
         <div class="movie-poster">
           <img :src="getImageUrl(movie.poster_path)" :alt="movie.title" />
           <div class="movie-overlay">
-            <button
-              class="icon-btn favorite"
-              @click="toggleFavorite(movie)"
-              title="Salvar"
-            >
-              <i class="fa-solid fa-heart" style="color: #401818;"></i>
-            </button>
-            <button
-              class="icon-btn watched"
-              @click="toggleWatched(movie)"
-              title="Marcar como assistido"
-            >
-              <i class="fa-solid fa-circle-check" style="color: #401818;"></i>
+            <div class="icon-buttons">
+              <button class="icon-btn favorite" @click="toggleFavorite(movie)" title="Salvar">
+                <i class="fa-solid fa-heart" style="color: #401818"></i>
+              </button>
+              <button
+                class="icon-btn watched"
+                @click="toggleWatched(movie)"
+                title="Marcar como assistido"
+              >
+                <i class="fa-solid fa-circle-check" style="color: #401818"></i>
+              </button>
+            </div>
+            <button class="see-more-btn" @click="console.log('Ver mais:', movie.title)">
+              Ver mais
             </button>
           </div>
         </div>
@@ -117,11 +116,7 @@ onMounted(() => {
     </div>
 
     <div v-if="!loading && !error && currentPage < totalPages" class="load-more-container">
-      <button
-        class="load-more-btn"
-        @click="loadMore"
-        :disabled="loadingMore"
-      >
+      <button class="load-more-btn" @click="loadMore" :disabled="loadingMore">
         {{ loadingMore ? 'Carregando...' : 'Carregar mais filmes' }}
       </button>
     </div>
@@ -140,18 +135,20 @@ onMounted(() => {
 
 .header h1 {
   font-family: 'Tangerine', cursive;
-  font-size: 5rem;
+  font-size: 5.5rem;
   color: black;
+  margin-bottom: 0;
   margin-bottom: 0;
   line-height: 1;
 }
 
 .header h2 {
   font-family: 'Playfair Display SC', serif;
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   color: #401818;
   margin: 0;
-  font-weight: 600;
+  margin-top: -1.5rem;
+  font-weight: 570;
 }
 
 .loading,
@@ -224,15 +221,21 @@ onMounted(() => {
   bottom: 0;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1vw;
+  gap: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .movie-card:hover .movie-overlay {
   opacity: 1;
+}
+
+.icon-buttons {
+  display: flex;
+  gap: 1rem;
 }
 
 .icon-btn {
@@ -257,6 +260,23 @@ onMounted(() => {
 
 .icon-btn i {
   font-size: 1.5rem;
+}
+
+.see-more-btn {
+  background-color: white;
+  color: #401818;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.see-more-btn:hover {
+  transform: scale(1.15);
+  background-color: #f8f8f8;
 }
 
 .movie-info {
