@@ -100,7 +100,7 @@ onMounted(() => {
                 <i class="fa-solid fa-circle-check" style="color: #401818"></i>
               </button>
             </div>
-            <button class="see-more-btn" @click="console.log('Ver mais:', movie.title)">
+            <button class="see-more-btn" @click="$router.push(`/movie/${movie.id}`)">
               Ver mais
             </button>
           </div>
