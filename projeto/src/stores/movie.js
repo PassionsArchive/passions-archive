@@ -4,7 +4,9 @@ import api from '@/plugins/axios';
 
 export const useMovieStore = defineStore('movie', () => {
   const state = reactive({
-    currentMovie: {},
+    currentMovie: {
+      vote_average: 0,
+    },
   });
 
   const currentMovie = computed(() => state.currentMovie);

@@ -1,9 +1,10 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import api from '@/plugins/axios'
 
 const route = useRoute()
+const router = useRouter()
 const emotion = ref(route.query.emotion || 'ROMÂNTICO')
 const movies = ref([])
 const loading = ref(true)
@@ -100,7 +101,7 @@ onMounted(() => {
                 <i class="fa-solid fa-circle-check" style="color: #401818"></i>
               </button>
             </div>
-            <button class="see-more-btn" @click="$router.push(`/movie/${movie.id}`)">
+            <button class="see-more-btn" @click="router.push(`/movie/${movie.id}`)">
               Ver mais
             </button>
           </div>
