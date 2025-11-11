@@ -38,7 +38,7 @@ const fetchMovies = async (page = 1) => {
 
     currentPage.value = page
     totalPages.value = response.data.total_pages
-  } catch (err) {
+  } catch (error) {
     error.value = 'Erro ao carregar filmes. Tente novamente.'
   } finally {
     loading.value = false
