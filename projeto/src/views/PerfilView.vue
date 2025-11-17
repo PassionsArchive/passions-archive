@@ -1,17 +1,84 @@
-<script setup></script>
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+
+const router = useRouter()
+const authStore = useAuthStore()
+
+const isLoggingOut = ref(false)
+
+// Dados do usuário
+const userData = computed(() => authStore.userData)
+const username = computed(() => userData.value?.username || 'Usuário')
+
+// Contadores (você pode implementar stores separados para isso)
+const savedCount = ref(0)
+const watchedCount = ref(0)
+
+const handleLogout = async () => {
+  if (confirm('Tem certeza que deseja sair?')) {
+    isLoggingOut.value = true
+    try {
+      await authStore.logout()
+      router.push('/')
+    } catch (error) {
+      console.error('Erro ao fazer logout:', error)
+    } finally {
+      isLoggingOut.value = false
+    }
+  }
+}
+
+const goToSaved = () => {
+  router.push('/salvos')
+}
+
+const goToWatched = () => {
+  router.push('/assistidos')
+}
+
+// Carregar contadores ao montar o componente
+onMounted(() => {
+  // Aqui você pode buscar os contadores do localStorage ou de um store
+  const saved = localStorage.getItem('savedMovies')
+  const watched = localStorage.getItem('watchedMovies')
+
+  if (saved) {
+    savedCount.value = JSON.parse(saved).length
+  }
+  if (watched) {
+    watchedCount.value = JSON.parse(watched).length
+  }
+})
+</script>
 
 <template>
   <div class="geral">
     <h1>Perfil</h1>
     <div class="listas">
       <ul class="perfil-info">
-        <li>NOME DE USUÁRIO: {{ usuario }}</li>
-        <li>E-MAIL: {{ email }}</li>
-        <li class="sair"><button>SAIR</button></li>
+        <li><strong>NOME DE USUÁRIO:</strong> {{ username }}</li>
+        <li><strong>ID DA CONTA:</strong> {{ userData?.id }}</li>
+        <li class="sair">
+          <button @click="handleLogout" :disabled="isLoggingOut">
+            {{ isLoggingOut ? 'SAINDO...' : 'SAIR' }}
+          </button>
+        </li>
       </ul>
       <ul class="contagens">
-        <li><button>SALVOS (contador)</button></li>
-        <li><button>ASSISTIDOS (contador)</button></li>
+        <li>
+          <button @click="goToSaved">
+            SALVOS<br />
+            <span class="count">{{ savedCount }}</span>
+          </button>
+        </li>
+        <li>
+          <button @click="goToWatched">
+            ASSISTIDOS<br />
+            <span class="count">{{ watchedCount }}</span>
+          </button>
+        </li>
       </ul>
     </div>
   </div>
@@ -20,7 +87,8 @@
 <style scoped>
 .geral {
   align-items: center;
-  margin: 4vw 0 4vw 0;
+  margin: 4vw 0 8vw 0;
+  min-height: 50vh;
 }
 
 h1 {
@@ -29,14 +97,15 @@ h1 {
   color: #401818;
   font-family: 'Tangerine', cursive;
   font-weight: 700;
+  margin-bottom: 3vw;
 }
 
 .listas {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 20vw;
-  margin: 4vw 0 4vw 0;
+  gap: 15vw;
+  margin: 4vw 0;
 }
 
 ul {
@@ -47,46 +116,87 @@ ul {
 
 .perfil-info {
   text-align: left;
+  min-width: 300px;
 }
 
 .perfil-info li {
-  margin-bottom: 8px;
+  margin-bottom: 1.5rem;
   font-size: 1.2rem;
   color: black;
   font-weight: bold;
+  text-transform: uppercase;
+}
+
+.perfil-info li strong {
+  color: #401818;
+  font-weight: bold;
+}
+
+.sair {
+  margin-top: 3vw;
+  text-align: center;
 }
 
 .sair button {
   background-color: #401818;
   color: #fff;
   border: none;
-  padding: 0.8vw 2vw;
+  padding: 0.8vw 2.5vw;
   font-weight: bold;
   font-size: 1.1rem;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin: 3vw;
+  min-width: 150px;
 }
 
-.sair button:hover {
+.sair button:hover:not(:disabled) {
   background-color: #8b3c3c;
   transform: scale(1.05);
+}
+
+.sair button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .contagens {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
+  gap: 3vh;
 }
 
 .contagens button {
   border: 2px solid black;
   background: transparent;
-  padding: 1vw 2.5vw;
+  padding: 1.5vw 2.5vw;
   font-weight: 600;
   border-radius: 10px;
-  width: 12vw;
+  width: 14vw;
+  min-width: 180px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.contagens button:hover {
+  background-color: #401818;
+  color: white;
+  transform: scale(1.05);
+}
+
+.count {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  color: #401818;
+}
+
+.contagens button:hover .count {
+  color: white;
 }
 </style>
