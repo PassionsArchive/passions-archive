@@ -6,6 +6,19 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
+import { ref } from 'vue'
+
+const visto = ref(false)
+const salvo = ref(false)
+
+const toggleVisto = () => {
+  visto.value = !visto.value
+}
+
+const toggleSalvo = () => {
+  salvo.value = !salvo.value
+}
+
 const movieStore = useMovieStore()
 
 const props = defineProps({
@@ -25,11 +38,17 @@ onMounted(async () => {
 <template>
   <div class="geral">
     <div class="content">
-      <img
-        class="movie-poster"
-        :src="`https://image.tmdb.org/t/p/w342${movieStore.currentMovie.poster_path}`"
-        :alt="movieStore.currentMovie.title"
-      />
+      <div class="poster-and-buttons">
+        <img
+          class="movie-poster"
+          :src="`https://image.tmdb.org/t/p/w342${movieStore.currentMovie.poster_path}`"
+          :alt="movieStore.currentMovie.title"
+        />
+        <button :class="{ active: visto }" @click="toggleVisto">JÁ VISTO</button>
+
+        <button :class="{ active: salvo }" @click="toggleSalvo">SALVAR</button>
+      </div>
+
       <div class="details">
         <h1>{{ movieStore.currentMovie.title }}</h1>
 
@@ -52,7 +71,7 @@ onMounted(async () => {
           </span>
 
           <span class="info-item genres">
-            {{ movieStore.currentMovie.genres?.map(g => g.name.toUpperCase()).join(', ') }}
+            {{ movieStore.currentMovie.genres?.map((g) => g.name.toUpperCase()).join(', ') }}
           </span>
         </div>
 
@@ -105,7 +124,6 @@ onMounted(async () => {
 <style scoped>
 .geral {
   padding: 2rem;
-  background-color: #f5f5f5;
 }
 
 .content {
@@ -129,9 +147,9 @@ onMounted(async () => {
 
 .details h1 {
   display: inline-block;
-  padding: 4px 10px;
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+  padding: 8px 12px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
   text-transform: uppercase;
   background-color: #401818;
   color: white;
@@ -224,7 +242,6 @@ onMounted(async () => {
   margin: 0 auto;
 }
 
-/* Estilização dos botões de navegação do Swiper */
 .swiper-button-prev,
 .swiper-button-next {
   background-color: rgba(0, 0, 0, 0.6);
@@ -257,5 +274,25 @@ onMounted(async () => {
 .swiper-button-disabled {
   opacity: 0.3;
   cursor: not-allowed;
+}
+.poster-and-buttons {
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  margin: 10px 10px 10px 20px;
+  padding: 10px 20px;
+  background-color: #401818;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button.active {
+  background-color: white;
+  color: #401818;
 }
 </style>
