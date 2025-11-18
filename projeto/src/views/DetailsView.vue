@@ -6,19 +6,6 @@ import { Navigation } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/navigation'
 
-import { ref } from 'vue'
-
-const visto = ref(false)
-const salvo = ref(false)
-
-const toggleVisto = () => {
-  visto.value = !visto.value
-}
-
-const toggleSalvo = () => {
-  salvo.value = !salvo.value
-}
-
 const movieStore = useMovieStore()
 
 const props = defineProps({
@@ -111,9 +98,6 @@ onMounted(async () => {
                 <p class="actor-name">{{ actor.name }}</p>
               </div>
             </SwiperSlide>
-
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
           </Swiper>
         </div>
       </div>
@@ -123,7 +107,7 @@ onMounted(async () => {
 
 <style scoped>
 .geral {
-  padding: 2rem;
+  padding: 5vw 5vw 5vw 5vw;
 }
 
 .content {
@@ -241,43 +225,10 @@ onMounted(async () => {
   white-space: nowrap;
   margin: 0 auto;
 }
-
-.swiper-button-prev,
-.swiper-button-next {
-  background-color: rgba(0, 0, 0, 0.6);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  color: white;
-  transition: background-color 0.3s;
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
-.swiper-button-prev::after,
-.swiper-button-next::after {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.swiper-button-prev {
-  left: -20px;
-}
-
-.swiper-button-next {
-  right: -20px;
-}
-
-.swiper-button-disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-}
 .poster-and-buttons {
   align-items: center;
   gap: 10px;
+  margin-right: 3vw;
 }
 
 button {
@@ -291,8 +242,4 @@ button {
   font-weight: bold;
 }
 
-button.active {
-  background-color: white;
-  color: #401818;
-}
 </style>

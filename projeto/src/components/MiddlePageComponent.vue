@@ -6,9 +6,7 @@
     <div class="principal">
       <img src="/public/texto-1.png" alt="Título" />
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris nisi ut aliquip ex ea commodo consequat.
+       Sabemos que o filme ideal é aquele que se encaixa perfeitamente no seu dia. É por isso que o Passion's Archive torna tudo simples: abaixo, você pode selecionar o humor exato que está sentindo e com base na sua escolha, nosso algoritmo selecionará as histórias de amor que mais combinam com o seu estado de espírito. Podemos sugerir um drama para te fazer chorar ou uma comédia reconfortante para te animar. Encontre o refúgio cinematográfico que você precisa!
       </p>
     </div>
     <img class="cena-2" src="/public/prettywoman.png" alt="Cena Uma Linda Mulher" />

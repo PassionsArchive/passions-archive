@@ -7,9 +7,7 @@ import router from '@/router';
     <div class="texto">
       <h1>Descubra a <span>história de amor</span> perfeita para você!</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-        laboris.
+        Sabemos que um bom filme pode ser o remédio para um dia cansativo. Encontrar uma história que se harmonize com o seu estado de espírito é essencial para relaxar, descontrair e espairecer. Descubra o que a sua alma está pedindo hoje!
       </p>
       <button @click="router.push('/login')">LOG-IN</button>
     </div>
@@ -48,7 +46,8 @@ import router from '@/router';
 }
 .texto p {
   font-weight: bold;
-  width: 88%;
+  width: 92%;
+  font-size: 1rem;;
   margin-bottom: 2vw;
 }
 .texto button {

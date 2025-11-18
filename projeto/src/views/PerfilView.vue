@@ -29,15 +29,6 @@ const handleLogout = async () => {
     }
   }
 }
-
-const goToSaved = () => {
-  router.push('/salvos')
-}
-
-const goToWatched = () => {
-  router.push('/assistidos')
-}
-
 // Carregar contadores ao montar o componente
 onMounted(() => {
   // Aqui você pode buscar os contadores do localStorage ou de um store
@@ -68,13 +59,13 @@ onMounted(() => {
       </ul>
       <ul class="contagens">
         <li>
-          <button @click="goToSaved">
+          <button>
             SALVOS<br />
             <span class="count">{{ savedCount }}</span>
           </button>
         </li>
         <li>
-          <button @click="goToWatched">
+          <button>
             ASSISTIDOS<br />
             <span class="count">{{ watchedCount }}</span>
           </button>
@@ -172,31 +163,19 @@ ul {
   border: 2px solid black;
   background: transparent;
   padding: 1.5vw 2.5vw;
-  font-weight: 600;
+  font-weight: bold;
   border-radius: 10px;
   width: 14vw;
   min-width: 180px;
-  cursor: pointer;
-  transition: all 0.3s ease;
   font-size: 1rem;
   text-align: center;
 }
 
-.contagens button:hover {
-  background-color: #401818;
-  color: white;
-  transform: scale(1.05);
-}
-
 .count {
   display: block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-top: 0.5rem;
-  color: #401818;
 }
 
-.contagens button:hover .count {
-  color: white;
-}
 </style>

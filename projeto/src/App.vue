@@ -18,7 +18,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <HeaderComponent />
+  <HeaderComponent/>
   <router-view />
   <FooterComponent />
 </template>
