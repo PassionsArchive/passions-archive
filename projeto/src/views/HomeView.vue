@@ -5,7 +5,9 @@ import FinalPageComponent from '@/components/FinalPageComponent.vue';
 </script>
 
 <template>
-  <StartPageComponent />
+  <span id="inicio">
+    <StartPageComponent />
+  </span>
   <MiddlePageComponent />
   <span id="final">
     <FinalPageComponent />

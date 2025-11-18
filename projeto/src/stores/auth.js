@@ -10,10 +10,8 @@ export const useAuthStore = defineStore('auth', () => {
   const isLoading = ref(false);
   const error = ref(null);
 
-  // Computed para verificar se está autenticado
   const isAuthenticated = computed(() => !!sessionId.value)
 
-  // Carregar dados do localStorage ao inicializar
   const loadFromStorage = () => {
     const storedSessionId = localStorage.getItem('tmdb_session_id');
     const storedAccountId = localStorage.getItem('tmdb_account_id');
@@ -28,7 +26,6 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Salvar no localStorage
   const saveToStorage = () => {
     if (sessionId.value) {
       localStorage.setItem('tmdb_session_id', sessionId.value);
@@ -37,14 +34,12 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Limpar localStorage
   const clearStorage = () => {
     localStorage.removeItem('tmdb_session_id');
     localStorage.removeItem('tmdb_account_id');
     localStorage.removeItem('tmdb_user_data');
   };
 
-  // Passo 1: Criar Request Token
   const createRequestToken = async () => {
     try {
       const response = await api.get('authentication/token/new');
@@ -55,7 +50,6 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Passo 2: Validar com Login e Senha
   const validateWithLogin = async (username, password, requestToken) => {
     try {
       const response = await api.post('authentication/token/validate_with_login', {
@@ -71,7 +65,6 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Passo 3: Criar Session ID
   const createSession = async (requestToken) => {
     try {
       const response = await api.post('authentication/session/new', {
@@ -84,7 +77,6 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Passo 4: Buscar dados da conta
   const getAccountDetails = async (sessionId) => {
     try {
       const response = await api.get('account', {
@@ -99,23 +91,15 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Função principal de login
   const login = async (username, password) => {
     isLoading.value = true;
     error.value = null;
 
     try {
-      // Passo 1: Criar request token
       const requestToken = await createRequestToken();
-
-      // Passo 2: Validar com login e senha
-      const validatedToken = await validateWithLogin(username, password, requestToken);
-
-      // Passo 3: Criar session ID
+      const validatedToken = await validateWithLogin(username, password, requestToken); // Passo 3: Criar session ID
       const newSessionId = await createSession(validatedToken);
       sessionId.value = newSessionId;
-
-      // Passo 4: Buscar dados da conta
       const accountData = await getAccountDetails(newSessionId);
       accountId.value = accountData.id;
       userData.value = {
@@ -126,8 +110,6 @@ export const useAuthStore = defineStore('auth', () => {
         iso_639_1: accountData.iso_639_1,
         iso_3166_1: accountData.iso_3166_1
       };
-
-      // Salvar no localStorage
       saveToStorage();
 
       return true;
@@ -139,12 +121,9 @@ export const useAuthStore = defineStore('auth', () => {
       isLoading.value = false;
     }
   };
-
-  // Função de logout
   const logout = async () => {
     try {
       if (sessionId.value) {
-        // Deletar sessão no TMDB
         await api.delete('authentication/session', {
           data: {
             session_id: sessionId.value
@@ -152,7 +131,6 @@ export const useAuthStore = defineStore('auth', () => {
         });
       }
     } finally {
-      // Limpar dados locais
       sessionId.value = null;
       accountId.value = null;
       userData.value = null;
@@ -160,12 +138,10 @@ export const useAuthStore = defineStore('auth', () => {
     }
   };
 
-  // Verificar se a sessão ainda é válida
 const validateSession = async () => {
   if (!sessionId.value) return false;
 
   try {
-    // Faz uma requisição simples para validar a sessão
     await api.get('account', {
       params: { session_id: sessionId.value }
     });
@@ -177,7 +153,6 @@ const validateSession = async () => {
   }
 };
 
-// Inicializar ao criar o store
 loadFromStorage();
 
 return {

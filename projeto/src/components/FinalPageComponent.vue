@@ -1,5 +1,12 @@
 <script setup>
 import router from '@/router';
+
+const goToEmotion = (emotionName) => {
+  router.push({
+    name: 'Emotions',
+    query: { emotion: emotionName }
+  });
+};
 </script>
 
 <template>
@@ -7,14 +14,14 @@ import router from '@/router';
     <img src="/public/texto-2.png" alt="Título" />
     <div class="listas">
       <ul class="div-1">
-        <li @click="router.push('/emotions')"><button>ROMÂNTICO</button></li>
-        <li><button>TRISTE</button></li>
-        <li><button>ESTRESSADO</button></li>
+        <li><button @click="goToEmotion('ROMÂNTICO')">ROMÂNTICO</button></li>
+        <li><button @click="goToEmotion('TRISTE')">TRISTE</button></li>
+        <li><button @click="goToEmotion('ESTRESSADO')">ESTRESSADO</button></li>
       </ul>
       <ul class="div-2">
-        <li><button>PENSATIVO</button></li>
-        <li><button>FELIZ</button></li>
-        <li><button>ENTEDIADO</button></li>
+        <li><button @click="goToEmotion('PENSATIVO')">PENSATIVO</button></li>
+        <li><button @click="goToEmotion('FELIZ')">FELIZ</button></li>
+        <li><button @click="goToEmotion('ENTEDIADO')">ENTEDIADO</button></li>
       </ul>
     </div>
   </div>
@@ -66,5 +73,4 @@ button:hover {
   color: #fff;
   transform: scale(1.05);
 }
-
 </style>

@@ -1,4 +1,24 @@
 <script setup>
+import router from '@/router'
+import { nextTick } from 'vue'
+
+const scrollToSection = async (hash) => {
+  if (router.currentRoute.value.path === '/') {
+    const element = document.querySelector(hash)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  } else {
+    await router.push({ path: '/' })
+
+    nextTick(() => {
+      const element = document.querySelector(hash)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+    })
+  }
+}
 </script>
 
 <template>
@@ -10,7 +30,7 @@
     </div>
     <nav>
       <ul>
-        <li><router-link to="/">INÍCIO</router-link></li>
+        <li><a href="#" @click.prevent="scrollToSection('#inicio')">INÍCIO</a></li>
         <li><router-link to="/salvos">SALVOS</router-link></li>
         <li><router-link to="/final">COMO ESTÁ SEU HUMOR?</router-link></li>
         <li><router-link to="/assistidos">ASSISTIDOS</router-link></li>

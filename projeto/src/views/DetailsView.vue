@@ -20,6 +20,7 @@ const modules = [Navigation]
 onMounted(async () => {
   await movieStore.getMovieDetail(props.movieId)
 })
+
 </script>
 
 <template>
@@ -45,7 +46,7 @@ onMounted(async () => {
           </span>
 
           <span class="info-item">
-            <strong>AVALIAÇÃO:</strong> {{ movieStore.currentMovie.vote_average?.toFixed(1) }}/5
+            <strong>AVALIAÇÃO:</strong> {{ movieStore.currentMovie.vote_average?.toFixed(1) }}/10
           </span>
         </div>
 

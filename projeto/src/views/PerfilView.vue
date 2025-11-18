@@ -7,12 +7,9 @@ const router = useRouter()
 const authStore = useAuthStore()
 
 const isLoggingOut = ref(false)
-
-// Dados do usuário
 const userData = computed(() => authStore.userData)
 const username = computed(() => userData.value?.username || 'Usuário')
 
-// Contadores (você pode implementar stores separados para isso)
 const savedCount = ref(0)
 const watchedCount = ref(0)
 
@@ -29,9 +26,7 @@ const handleLogout = async () => {
     }
   }
 }
-// Carregar contadores ao montar o componente
 onMounted(() => {
-  // Aqui você pode buscar os contadores do localStorage ou de um store
   const saved = localStorage.getItem('savedMovies')
   const watched = localStorage.getItem('watchedMovies')
 

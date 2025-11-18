@@ -5,7 +5,7 @@ import api from '@/plugins/axios'
 
 const route = useRoute()
 const router = useRouter()
-const emotion = ref(route.query.emotion || 'ROMÂNTICO')
+const emotion = ref(route.query.emotion || 'ROMÂNTICO', 'TRISTE', 'ESTRESSADO', 'PENSATIVO', 'FELIZ', 'ENTENDIADO')
 const movies = ref([])
 const loading = ref(true)
 const loadingMore = ref(false)

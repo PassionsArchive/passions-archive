@@ -7,10 +7,8 @@ import FooterComponent from './components/FooterComponent.vue'
 const authStore = useAuthStore()
 
 onMounted(async () => {
-  // Carregar dados de autenticação do localStorage
   authStore.loadFromStorage()
 
-  // Validar se a sessão ainda é válida
   if (authStore.isAuthenticated) {
     await authStore.validateSession()
   }
