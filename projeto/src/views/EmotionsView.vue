@@ -14,6 +14,22 @@ const currentPage = ref(1)
 const totalPages = ref(1)
 
 const fetchMovies = async (page = 1) => {
+  let genreId = ''
+  if (emotion.value == 'ROMÂNTICO') {
+    genreId = '10749,35'
+  } else if (emotion.value == 'TRISTE') {
+    genreId = '18'
+  } else if (emotion.value == 'ESTRESSADO') {
+    genreId = '28'
+  } else if (emotion.value == 'PENSATIVO') {
+    genreId = '9648,878'
+  } else if (emotion.value == 'FELIZ') {
+    genreId = '35,12,10751'
+  } else if (emotion.value == 'ENTENDIADO') {
+    genreId = '28,12,14'
+  } else {
+    genreId = '10749'
+  }
   try {
     if (page === 1) {
       loading.value = true
@@ -24,7 +40,7 @@ const fetchMovies = async (page = 1) => {
 
     const response = await api.get('discover/movie', {
       params: {
-        with_genres: '10749',
+        with_genres: `10749,${genreId}`,
         'vote_count.gte': 100,
         language: 'pt-BR',
         page: page,
@@ -66,7 +82,9 @@ const toggleWatched = (movie) => {
 }
 
 onMounted(() => {
-  fetchMovies()
+  fetchMovies(
+
+  )
 })
 </script>
 

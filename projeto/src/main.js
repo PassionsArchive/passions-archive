@@ -4,5 +4,10 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
+import LineBubbles from './components/LineBubbles.vue'
 
-createApp(App).use(createPinia()).use(router).mount('#app')
+const app = createApp(App)
+app.component('LineBubbles', LineBubbles)
+app.use(createPinia())
+app.use(router)
+app.mount('#app')

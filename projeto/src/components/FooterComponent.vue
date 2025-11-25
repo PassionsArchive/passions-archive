@@ -1,6 +1,7 @@
 <script setup>
 import router from '@/router'
 import { nextTick } from 'vue'
+/*import LineBubbles from './LineBubbles.vue'*/
 
 const scrollToSection = async (hash) => {
   if (router.currentRoute.value.path === '/') {
@@ -24,6 +25,8 @@ const scrollToSection = async (hash) => {
 <template>
   <div>
     <img class="cenas" src="/public/Group 6.png" alt="Cenas de Filmes" />
+
+    <!-- <LineBubbles vertical="true"/> -->
 
     <div class="logo-container">
       <img class="logo" src="/public/logo-vermelha.png" alt="Logo Passion's Archive" @click="router.push('/')"/>

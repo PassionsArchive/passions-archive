@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 
@@ -9,9 +9,6 @@ const authStore = useAuthStore()
 const isLoggingOut = ref(false)
 const userData = computed(() => authStore.userData)
 const username = computed(() => userData.value?.username || 'Usuário')
-
-const savedCount = ref(0)
-const watchedCount = ref(0)
 
 const handleLogout = async () => {
   if (confirm('Tem certeza que deseja sair?')) {
@@ -26,17 +23,7 @@ const handleLogout = async () => {
     }
   }
 }
-onMounted(() => {
-  const saved = localStorage.getItem('savedMovies')
-  const watched = localStorage.getItem('watchedMovies')
 
-  if (saved) {
-    savedCount.value = JSON.parse(saved).length
-  }
-  if (watched) {
-    watchedCount.value = JSON.parse(watched).length
-  }
-})
 </script>
 
 <template>
@@ -56,13 +43,13 @@ onMounted(() => {
         <li>
           <button>
             SALVOS<br />
-            <span class="count">{{ savedCount }}</span>
+            <span class="count">0</span>
           </button>
         </li>
         <li>
           <button>
             ASSISTIDOS<br />
-            <span class="count">{{ watchedCount }}</span>
+            <span class="count">0</span>
           </button>
         </li>
       </ul>
