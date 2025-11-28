@@ -2,9 +2,11 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: import.meta.env.VITE_TMDB_API_URL || "https://api.themoviedb.org/3/",
+  baseURL: import.meta.env.eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZjIxYTA1ZmYxZDAwOTYyYTBhMGQ3MWU5YWQ0ODMzYSIsIm5iZiI6MTc1OTI1Mjg2NC4zLCJzdWIiOiI2OGRjMTE4MDlkZmFhMjc5MmRjNzcxMzIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.VcFYXzbXwRU4Zk5uzApdRJLVpdmmi71EaMnROzEaUEQ
+ || "https://api.themoviedb.org/3/",
   headers: {
-    Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
+    Authorization: `Bearer ${import.meta.env.eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZjIxYTA1ZmYxZDAwOTYyYTBhMGQ3MWU5YWQ0ODMzYSIsIm5iZiI6MTc1OTI1Mjg2NC4zLCJzdWIiOiI2OGRjMTE4MDlkZmFhMjc5MmRjNzcxMzIiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.VcFYXzbXwRU4Zk5uzApdRJLVpdmmi71EaMnROzEaUEQ
+}`,
   },
 });
 
