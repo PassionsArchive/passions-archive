@@ -25,11 +25,9 @@ const handleSubmit = async () => {
     const success = await authStore.login(username.value, password.value)
 
     if (success) {
-      // Login bem-sucedido
       const redirectTo = route.query.redirect || '/perfil'
       router.push(redirectTo)
     } else {
-      // Erro no login
       errorMessage.value = authStore.error || 'Usuário ou senha incorretos'
     }
   } catch (error) {
@@ -42,6 +40,7 @@ const handleSubmit = async () => {
 </script>
 
 <template>
+
   <div class="geral">
     <h2>Log-In</h2>
     <p>
@@ -77,16 +76,9 @@ const handleSubmit = async () => {
         </li>
       </ul>
       <button type="submit" :disabled="isSubmitting">
-        {{ isSubmitting ? 'ENTRANDO...' : 'ENTRAR' }}
+        {{ isSubmitting ? 'ENTRANDO' : 'ENTRAR' }}
       </button>
     </form>
-
-    <div class="register-link">
-      <p>
-        Não tem uma conta no TMDB?
-        <a href="https://www.themoviedb.org/signup" target="_blank">Criar conta</a>
-      </p>
-    </div>
   </div>
 </template>
 

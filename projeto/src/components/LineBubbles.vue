@@ -20,7 +20,7 @@ const props = defineProps({
 <template>
   <div
     class="line"
-    :style="props.bottom ? 'transform: rotate(180deg); margin-top: 2vw;' : props.vertical ? 'transform: rotate(180deg); margin-top: 2vw;' : ''">
+    :style="props.bottom ? 'transform: rotate(180deg); margin-top: 2vw; margin-bottom: 7px;' : props.vertical ? 'transform: rotate(180deg); margin-top: 2vw;' : ''">
     <template v-if="!props.withoutBubble">
       <span class="circle"></span>
       <span class="circle circle2"></span>
@@ -37,17 +37,17 @@ const props = defineProps({
   width: 100%;
   align-items: center;
   /* margin-top: 30px; */
-  border-top: 0.12rem solid black;
+  border-top: 0.15rem solid black;
 
 
   & .circle {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     margin: 0 5px;
     border: 0.12rem solid black;
     border-radius: 50%;
-    margin-top: -1.1vw;
+    margin-top: -1.6vw;
   }
 
 

@@ -28,6 +28,7 @@ const handleLogout = async () => {
 
 <template>
   <div class="geral">
+    <LineBubbles />
     <h1>Perfil</h1>
     <div class="listas">
       <ul class="perfil-info">
@@ -35,7 +36,7 @@ const handleLogout = async () => {
         <li><strong>ID DA CONTA:</strong> {{ userData?.id }}</li>
         <li class="sair">
           <button @click="handleLogout" :disabled="isLoggingOut">
-            {{ isLoggingOut ? 'SAINDO...' : 'SAIR' }}
+            {{ isLoggingOut ? 'SAINDO' : 'SAIR' }}
           </button>
         </li>
       </ul>
@@ -54,13 +55,14 @@ const handleLogout = async () => {
         </li>
       </ul>
     </div>
+    <LineBubbles bottom="true"/>
   </div>
 </template>
 
 <style scoped>
 .geral {
   align-items: center;
-  margin: 4vw 0 8vw 0;
+  margin: 4vw 20vw 8vw 20vw;
   min-height: 50vh;
 }
 

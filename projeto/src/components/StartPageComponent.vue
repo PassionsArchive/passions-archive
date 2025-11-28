@@ -37,7 +37,6 @@ import router from '@/router'
 .texto {
   width: 38%;
   color: black;
-  margin-right: 5vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -77,4 +76,5 @@ button:hover {
   color: #fff;
   transform: scale(1.05);
 }
+
 </style>
